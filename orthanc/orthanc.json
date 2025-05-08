@@ -1,0 +1,19 @@
+{
+  "Name": "Medical e-Academy Orthanc",
+  "StorageDirectory": "/var/lib/orthanc/db",
+  "Plugins": ["/usr/lib/orthanc/libOrthancStoneWebViewer.so"],
+  "RemoteAccessAllowed": true,
+  "AuthenticationEnabled": true,
+  "RegisteredUsers": {
+    "admin": "admin123"
+  },
+  "DicomWeb": {
+    "Enable": true
+  },
+  "HttpServerEnabled": true,
+  "HttpPort": 8042,
+  "DicomPort": 4242,
+  "HttpServer": {
+    "CorsAllowedOrigins": ["http://localhost:3000"]
+  }
+}

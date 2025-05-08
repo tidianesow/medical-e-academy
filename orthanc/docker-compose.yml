@@ -1,0 +1,17 @@
+version: '3'
+services:
+  orthanc:
+    image: jodogne/orthanc-plugins:latest
+    ports:
+      - "4242:4242"
+      - "8042:8042"
+    volumes:
+      - ./orthanc.json:/etc/orthanc/orthanc.json:ro
+      - ./db:/var/lib/orthanc/db
+    environment:
+      - ORTHANC__NAME=Medical e-Academy Orthanc
+      - ORTHANC__AUTHENTICATION__ENABLED=true
+      - ORTHANC__AUTHENTICATION__USERS__ADMIN=admin123
+      - ORTHANC__DICOM_WEB__ENABLE=true
+      - ORTHANC__PLUGINS=["libOrthancStoneWebViewer.so"]
+    restart: unless-stopped
